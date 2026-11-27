@@ -10,6 +10,13 @@
 body{margin:0;background:#FBFAF6}
 a{color:#1F4D36;text-decoration:none}a:hover{color:#0F2A1D;text-decoration:underline}
 </style>
+<style>
+.resultados-busca{margin-top:10px;display:grid;gap:6px}
+.resultados-busca a{display:block;padding:11px 14px;border-radius:10px;background:#F4F7F2;color:#143323;text-decoration:none;font-weight:600}
+.resultados-busca a:hover{background:#EAF0E6}
+.resultados-busca a small{display:block;font-weight:400;color:#5C6B62;margin-top:2px}
+#busca-home:focus{outline:3px solid #9CC3A8;outline-offset:1px}
+</style>
 </head>
 <body>
 <div style="background:#E2B969;color:#143323;font:600 13px Inter,sans-serif;text-align:center;padding:8px">PROPOSTA DE LAYOUT – não é o site oficial · <a href="index.html" style="color:#143323">Página inicial</a> · <a href="mapa-do-site.html" style="color:#143323">Novo mapa do site</a></div>
@@ -41,6 +48,7 @@ a{color:#1F4D36;text-decoration:none}a:hover{color:#0F2A1D;text-decoration:under
 <a href="#" style="color: #1E2A23">Rede de Herbários</a>
 <a href="#" style="color: #1E2A23">Prêmios</a>
 <a href="#" style="color: #1E2A23">Notícias</a>
+<a href="#busca" aria-label="Buscar no site" style="color: #1E2A23; display: flex; padding: 10px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg></a>
 <a href="#" style="background: #2E6B4A; color: #FFFFFF; padding: 12px 20px; border-radius: 999px; font-weight: 600">Associe-se</a>
 </nav>
 </div>
@@ -48,7 +56,7 @@ a{color:#1F4D36;text-decoration:none}a:hover{color:#0F2A1D;text-decoration:under
 
 <!-- Destaque -->
 <section style="background: #EAF0E6">
-<div style="max-width: 1240px; margin: 0 auto; padding: 72px 24px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+<div style="max-width: 1240px; margin: 0 auto; padding: 72px 24px 96px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
 <div style="flex: 1 1 520px; min-width: 0">
 <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #2E6B4A">Associação científica, cultural e educacional</div>
 <h1 style="font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 56px; line-height: 1.05; color: #143323; margin: 16px 0 20px">A Botânica brasileira reunida há 76 anos</h1>
@@ -70,6 +78,21 @@ a{color:#1F4D36;text-decoration:none}a:hover{color:#0F2A1D;text-decoration:under
 <div style="font-size: 16px; line-height: 1.5; margin-top: 8px">Pague ou consulte sua anuidade na Área do associado.</div>
 <a href="https://assocializa.com.br/sbb" style="display: inline-block; margin-top: 12px; font-weight: 600">Acessar →</a>
 </div>
+</div>
+</div>
+</section>
+
+<!-- Busca -->
+<section id="busca" style="max-width: 1240px; margin: -40px auto 0; padding: 0 24px; position: relative; z-index: 2">
+<div style="background: #FFFFFF; border: 1px solid #DCE3D7; border-radius: 20px; box-shadow: 0 10px 30px rgba(20,51,35,.08); padding: 28px; display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: flex-start; justify-content: space-between">
+<div style="flex: 1 1 300px">
+<h2 style="font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 28px; color: #143323; margin: 0 0 4px">O que você procura?</h2>
+<p style="margin: 0; color: #3A4A40; font-size: 15px">Busque em todo o site: documentos, eventos, regionais, prêmios e herbários.</p>
+</div>
+<div style="flex: 1 1 420px; max-width: 620px">
+<label for="busca-home" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Buscar no site</label>
+<input id="busca-home" type="search" data-busca="res-home" autocomplete="off" placeholder="Ex.: anuidade, estatuto, congresso, catálogo de herbários" style="width: 100%; box-sizing: border-box; min-height: 52px; border: 1px solid #B9C6BC; border-radius: 12px; padding: 0 16px; font: 16px Inter, sans-serif">
+<div id="res-home" class="resultados-busca" aria-live="polite"></div>
 </div>
 </div>
 </section>
@@ -223,5 +246,6 @@ a{color:#1F4D36;text-decoration:none}a:hover{color:#0F2A1D;text-decoration:under
 </footer>
 
 </div>
+<script src="busca.js"></script>
 </body>
 </html>
